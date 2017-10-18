@@ -5,6 +5,7 @@ import javax.swing.JPanel;
  * Tile represent each space of the board, the board has 42 tiles
  * The default image of the Tile is BLUE.png
  * @author danielavargas
+ * @see Imagenes
  *
  */
 public class Tile extends JPanel{

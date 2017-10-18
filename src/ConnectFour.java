@@ -7,6 +7,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+/**
+ * ConnectFour class that allows to visualize and to follow the flow of the game
+ * @author danielavargas
+ * @see Imagenes
+ *
+ */
 
 public class ConnectFour extends JFrame implements KeyListener{
 	private static Board board = new Board();
@@ -19,6 +25,9 @@ public class ConnectFour extends JFrame implements KeyListener{
 	private final Color darkBlue = new Color(115, 176, 170);
 	private final Color  blueColor = new Color(200, 219, 206);
 	
+	/**
+	 * Constructs and initializes a Connect Four game
+	 */
 	public ConnectFour(){
 		addKeyListener(this);
 		Imagenes.Singleton().cargaCarpeta("images");
@@ -45,9 +54,10 @@ public class ConnectFour extends JFrame implements KeyListener{
         actualiza();
 	}
 	
-	/*
-	 Method that restart the board and turn 
-	*/
+
+	/**
+	 * Restarts the board and turn (Player 1)
+	 */
 	public void restartGame(){
 		board.restartBoard();
 		turn = player1;
@@ -60,6 +70,10 @@ public class ConnectFour extends JFrame implements KeyListener{
 		actualiza();
 	}
 	
+	/**
+	 * Returns the current player
+	 * @return Player
+	 */
 	public Player getTurn(){
 		return turn;
 	}
@@ -85,19 +99,20 @@ public class ConnectFour extends JFrame implements KeyListener{
 		}
 	}
 	
-	/*
-	 Method that updates the graphics 
-	*/
+	/**
+	 * Updates the GUI
+	 */
 	public void actualiza(){
         validate();
         repaint();
     }
 	
 	
-	/*
-	 Method that updates the board 
-	 @params column number and the player making the move
-	*/
+	/**
+	 * Updates the board, drops a piece in the given column 
+	 * @param column
+	 * @param player
+	 */
 	public static void placePiece(int column, Player player){
 		if (isValidMove(column)){
 			int lastRow = board.getLastRow(column);
@@ -107,11 +122,13 @@ public class ConnectFour extends JFrame implements KeyListener{
 		}
 	}
 	
-	/*
-	 Function that checks if there is a valid move
-	  @params column number
-	  @return bool: if the movement was valid
-	*/
+
+	/**
+	 * Boolean function that verifies if it is a valid move
+	 * The board and the column aren't full
+	 * @param column
+	 * @return if the move can be made
+	 */
 	public static boolean isValidMove(int column){
 		if (board.isColumnFull(column)){
 			return false;
@@ -124,6 +141,9 @@ public class ConnectFour extends JFrame implements KeyListener{
 		}
 	}
 	
+	/**
+	 * Displays a dialog 
+	 */
 	public void isTie(){
 		if(board.isfullBoard()){
 			Object[] options = {"Restart game",
@@ -143,10 +163,10 @@ public class ConnectFour extends JFrame implements KeyListener{
 		}
 	}
 	
-	/*
-	 Function that verifies if there is a winner
-	 @returns Player in case there is a winner or null otherwise
-	*/
+	/**
+	 * Verifies if there is a winner
+	 * @return Player in case there is a winner or null otherwise
+	 */
 	public Player checkWin(){
 		int p1Score = 0;
 		int p2Score = 0;
@@ -244,6 +264,9 @@ public class ConnectFour extends JFrame implements KeyListener{
 	}
 	
 	
+	/**
+	 * Game flow
+	 */
 	public void playTime(){
 		Scanner scan = new Scanner(System.in);
 		int column;
@@ -274,10 +297,10 @@ public class ConnectFour extends JFrame implements KeyListener{
 			}
 		}
 	}
-	
-	/*
-	 Method used to restart a game or continue, it uses optional Dialog 
-	*/
+
+	/**
+	 * Shows a dialog to restart or resume the game
+	 */
 	public void stopGame(){
     	Object[] options = {"Restart game",
                 "Resume"};
@@ -294,6 +317,9 @@ public class ConnectFour extends JFrame implements KeyListener{
 		}
     }
 	
+	/**
+	 * Changes the current player 
+	 */
 	public void changeTurn(){
 		if (turn.equals(player1)){
 			turn = player2;
@@ -302,11 +328,11 @@ public class ConnectFour extends JFrame implements KeyListener{
 		}
 	}
 	
-	/*
-	 Method that verifies is there is a winner
-	 In case there is a winner it announces the player
-	 Otherwise it changes the turn
-	*/
+
+	/**
+	 * Determines if there is a winner and announces it, otherwise it canges the turn
+	 * @return Player 
+	 */
 	public Player updateGame(){
 		Player winner = null;
 		winner = checkWin();

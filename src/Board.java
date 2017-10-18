@@ -1,5 +1,6 @@
+
 /**
- * 
+ * Board class 
  * @author danielavargas
  *
  */
@@ -9,7 +10,10 @@ public class Board {
 	private static int columns = 7;
 	static int[][] board;
 	
-	//Board constructor
+
+	/**
+	 * Constructs and initializes the board
+	 */
 	public Board(){
 		board = new int[rows][columns];
 		//Initialize to 0 the board
@@ -39,11 +43,13 @@ public class Board {
 		return columns;
 	}
 	
-	/*
-	 Function that verifies if a space if empty
-	 @params x and y position
-	 @return boolean
-	*/
+
+	/**
+	 * Verifies is a space is empty
+	 * @param x row
+	 * @param y colum
+	 * @return if the space is empty
+	 */
 	public boolean isOccupied(int x, int y){
 		if (board[x][y] != 0){
 			return false;
@@ -51,9 +57,10 @@ public class Board {
 		return true;
 	}
 	
-	/*
-	 Function that prints the board with format
-	*/
+
+	/**
+	 * Prints the board with format
+	 */
 	public void printBoard(){
 		for(int i = 0; i < rows; i++){
 			for(int j = 0; j < columns; j++){
@@ -63,19 +70,23 @@ public class Board {
 		}
 	}
 	
-	/*
-	 Function that updates the board filling the given space
-	 @params x and y position
-	*/
+
+	/**
+	 * Updates the board filling the given space
+	 * @param x row
+	 * @param y colum
+	 * @param player
+	 */
 	public void updateBoard(int x, int y, int player){
 		board[x][y] = player;
 	}
 	
-	/*
-	 Function that gets the last row taken from the given column
-	 @params column number
-	 @return int: the last space used of the given column 
-	*/
+
+	/**
+	 * Gets the last row taken from the given column
+	 * @param column
+	 * @return next free space
+	 */
 	public int getLastRow(int column){
 		for(int i = rows - 1; i  >= 0; i--){
 			if(board[i][column] == 0){
@@ -85,11 +96,12 @@ public class Board {
 		return 0;
 	}
 	
-	/*
-	 Function that checks if the given column has free spaces
-	 @params column number
-	 @return Boolean
-	*/
+
+	/**
+	 * Verifies that the given column has free spaces
+	 * @param column
+	 * @return is there are free spaces
+	 */
 	public boolean isColumnFull(int column){
 		if(board[0][column] > 0){
 			return true;
@@ -97,6 +109,10 @@ public class Board {
 		return false;
 	}
 	
+	/**
+	 * Verifies is the board is full
+	 * @return if the board has any empty space
+	 */
 	public boolean isfullBoard(){
 		for(int i = 0; i < columns; i++){
 			if (!isColumnFull(i)){
@@ -106,6 +122,12 @@ public class Board {
 		return true;
 	}
 	
+	/**
+	 * Determines the value of the tile
+	 * @param x row
+	 * @param y column
+	 * @return value of the tile
+	 */
 	public int getSpace(int x, int y){
 		return board[x][y];
 	}

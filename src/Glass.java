@@ -4,11 +4,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-
+/**
+ * Glass class is used to receive mouse events
+ * @author danielavargas
+ *
+ */
 public class Glass extends JPanel implements MouseListener {
     
     private ConnectFour parent;
     
+    /**
+     * Constructs and initializes a glass
+     * @param parent ConnectFour game
+     */
     public Glass(ConnectFour parent){
         super();
         this.setBackground(Color.white);
