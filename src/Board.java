@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author danielavargas
+ *
+ */
 
 public class Board {
 	private static int rows = 6;
@@ -15,7 +20,9 @@ public class Board {
 		}
 	}
 	
-	
+	/**
+	 * Restarts the board
+	 */
 	public void restartBoard(){
 		for(int i = 0; i < rows; i++){
 			for(int j = 0; j < columns; j++){

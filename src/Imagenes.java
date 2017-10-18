@@ -7,7 +7,12 @@ import java.util.HashMap;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-
+/**
+ * Imagenes class facilitates the use of images in the project (gif, jpg or png)
+ * This class was taken from a previous course (video games)
+ * @author danielavargas
+ *
+ */
 public class Imagenes {
 
        private static Imagenes instancia=null;
@@ -21,8 +26,11 @@ public class Imagenes {
            return instancia;
        }
        
-       public void cargaCarpeta(String carpeta)
-       {
+       /**
+        * Allows you to upload images from the given folder
+        * @param carpeta folder
+        */
+       public void cargaCarpeta(String carpeta){
           File acceso = new File(carpeta);
           String archivos[] = acceso.list();
           for(int i=0; i<archivos.length; i++)
@@ -46,8 +54,11 @@ public class Imagenes {
           }
        }
        
-       public void eliminaCarpeta(String carpeta)
-       {
+       /**
+        * Deletes the given folder
+        * @param carpeta folder
+        */
+       public void eliminaCarpeta(String carpeta){
           File acceso = new File(carpeta);
           String archivos[] = acceso.list();
           for(int i=0; i<archivos.length; i++)
@@ -64,8 +75,12 @@ public class Imagenes {
           }
        }
        
-       Image imagen(String nombre)
-       {
+       /**
+        * Returns the image 
+        * @param nombre image
+        * @return image
+        */
+       Image imagen(String nombre){
            if(nombre.endsWith(".gif"))
            {
               return gifs.get(nombre).getImage();
@@ -77,8 +92,7 @@ public class Imagenes {
            return null;
        }
        
-       Image fragmento(String nombre, int xini, int yini, int ancho, int alto)
-       {
+       Image fragmento(String nombre, int xini, int yini, int ancho, int alto){
            if(nombre.endsWith(".gif"))
            {
               BufferedImage imagen=(BufferedImage)gifs.get(nombre).getImage();

@@ -16,8 +16,8 @@ public class ConnectFour extends JFrame implements KeyListener{
 	private static Player turn = null; 
 	private static  Tile[][] tiles;
 	private Glass cristal;
-	private Color darkBlue = new Color(115, 176, 170);
-	private Color  blueColor = new Color(200, 219, 206);
+	private final Color darkBlue = new Color(115, 176, 170);
+	private final Color  blueColor = new Color(200, 219, 206);
 	
 	public ConnectFour(){
 		addKeyListener(this);
@@ -63,7 +63,6 @@ public class ConnectFour extends JFrame implements KeyListener{
 	public Player getTurn(){
 		return turn;
 	}
-	
 	
 	public void paint(Graphics g){
 		int w = 60;
@@ -295,6 +294,14 @@ public class ConnectFour extends JFrame implements KeyListener{
 		}
     }
 	
+	public void changeTurn(){
+		if (turn.equals(player1)){
+			turn = player2;
+		}else{
+			turn = player1;
+		}
+	}
+	
 	/*
 	 Method that verifies is there is a winner
 	 In case there is a winner it announces the player
@@ -304,11 +311,7 @@ public class ConnectFour extends JFrame implements KeyListener{
 		Player winner = null;
 		winner = checkWin();
 		if(winner == null){
-			if (turn.equals(player1)){
-				turn = player2;
-			}else{
-				turn = player1;
-			}
+			changeTurn();
 			return null;
 		}else if (winner.equals(player2)){
 			System.out.println(player2.getName() + " wins!!!");
