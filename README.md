@@ -1,4 +1,4 @@
-Connect4
+# Connect4
 
 Repository for software architecture class
 
@@ -15,3 +15,6 @@ Private Class Data: control write access to class attributes.
 
 Behavioral design patterns, are all about Class's objects communication. 
 Observer Design Pattern: when one object changes state, all its dependents are notified and updated automatically. 
+
+
+Javadoc was used to document the application. All files are in the "doc" folder
