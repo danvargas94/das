@@ -1,6 +1,12 @@
 # Connect4
 
+
+
 Repository for software architecture class
+
+
+![Connect4](images/connect4.png)
+
 
 Document must outline final overview of the architectures and design patterns used.
 
