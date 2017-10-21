@@ -330,7 +330,7 @@ public class ConnectFour extends JFrame implements KeyListener{
 	
 
 	/**
-	 * Determines if there is a winner and announces it, otherwise it canges the turn
+	 * Determines if there is a winner and announces it, otherwise it changes the turn
 	 * @return Player 
 	 */
 	public Player updateGame(){

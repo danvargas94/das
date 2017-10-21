@@ -10,7 +10,12 @@ import javax.swing.JPanel;
  */
 public class Tile extends JPanel{
 	
-	protected int x, y, width, height, posx, posy;
+	protected int x;
+    protected int y;
+    protected int width;
+    protected int height;
+    protected int posx;
+    protected int posy;
     protected ImageIcon image;
     ImageIcon im = new ImageIcon(Imagenes.Singleton().imagen("BLUE.png"));
     
